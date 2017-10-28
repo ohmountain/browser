@@ -34,7 +34,7 @@ class Blocks extends Component {
 
         let date = new Date();
 
-        for (let i=0; i<20; i++) {
+        for (let i=0; i<15; i++) {
             data.push({
                 id: i+ date.getTime(),
                 height: i + date.getTime(),
@@ -66,7 +66,7 @@ class Blocks extends Component {
 
         return (<div className="container" ref="container">
             <div style={{
-                minHeight: '820px',
+                minHeight: '640px',
                 width: '90%',
                 minWidth: '980px',
                 display:'block',
