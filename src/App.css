@@ -83,14 +83,21 @@
     border-bottom: 2px solid #08f;
 }
 
+.content {
+    position: relative;
+    overflow-x: hidden;
+}
 
-.index-container {
+.container {
     min-height: 100vh;
     min-height: calc(100vh - 64px);
     display: flex;
     align-content: center;
     align-items: center;
     justify-content: center;
+    transition: 0.2s;
+    opacity: 0;
+    transform: scale(0.95);
 }
 
 .block-height-wrapper, .transaction-wrapper {
@@ -106,12 +113,19 @@
 .block-height-title, .transaction-title {
     font-size: 24px;
     color: #FFF;
-    /* text-shadow: -1px 1px 10px #333, 0px 0px 10px #303030; */
-    text-shadow: 1px 1px 0 #E4F1FF;
+    text-shadow: 1px 1px 4px #000;
 }
 
 .block-height-text, .transaction-number-text {
     font-size: 48px;
     color: #0c3;
     text-shadow: 1px 1px 0 #333;
+}
+
+
+.container-mounted-position {
+    transition-duration: 0.45s;
+    opacity: 1;
+    transition-timing-function: ease-in-out;
+    transform: scale(1);
 }
