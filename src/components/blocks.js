@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import QueueAnim from 'rc-queue-anim';
 import { Link } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
 
 class Blocks extends Component {
 
@@ -19,61 +20,53 @@ class Blocks extends Component {
            this.refs.container.classList.add('container-mounted-position');
         }, 10);
 
+        this.randData();
+
+        setInterval(() => {
+            this.randData();
+        }, 10000);
+    }
+
+    randData() {
         let data = [];
 
-        for (let i=0; i<10; i++) {
+        this.setState({ data });
+
+        let date = new Date();
+
+        for (let i=0; i<20; i++) {
             data.push({
-                id: i+1,
-                height: i+1,
+                id: i+ date.getTime(),
+                height: i + date.getTime(),
                 merkle: Math.random(),
-                time: new Date(),
+                time: date,
                 transactions: Math.ceil(Math.random() * 100),
                 size: 245
             });
         }
 
-        setTimeout(() => {
-            this.setState({ data });
-        }, 100);
-
-        let timmer = setInterval(() => {
-            let data = this.state.data;
-            let len  = data.length;
-
-            data.push({
-                id: len+1,
-                height: len+1,
-                merkle: Math.random(),
-                time: new Date(),
-                transactions: Math.ceil(Math.random() * 100),
-                size: 245
-            });
-
-            this.setState({ data });
-        }, 1000);
-
-        this.setState({ timmer });
+        setTimeout(() => this.setState({ data }), 2000);
     }
 
     componentWillUnmount() {
-        clearInterval(this.state.timmer);
         this.refs.container.classList.remove('container-mounted-position');
     }
-    render() {
 
+    render() {
         let body = this.state.data.map((row, i) => {
-            return (<Link key={ row.id } to="/"><ul className="horizontal-list">
-                <li className="block-height-tb-text">{ row.height }</li>
-                <li className="block-height-tb-merkle">{ row.merkle }</li>
-                <li className="block-height-tb-time">{ row.time.getTime() + i }</li>
-                <li className="block-height-tb-transactions">{ row.transactions }</li>
-                <li className="block-height-tb-size">{ row.size }</li>
-            </ul></Link>);
+            let time = `${ 1990 + row.time.getYear()}-${row.time.getMonth()+1}-${row.time.getDate()} ${row.time.getHours()}:${row.time.getMinutes()}:${row.time.getSeconds()}`;
+            return (<Link key={ row.id } to="/"><QueueAnim type="bottom" component="ul" className="horizontal-list">
+                <li key={row.id + 'height'} className="block-height-tb-text">{ row.height }</li>
+                <li key={row.id + 'merkle'}  className="block-height-tb-merkle">{ row.merkle }</li>
+                <li key={row.id + 'time'}  className="block-height-tb-time">{ time }</li>
+                <li key={row.id + 'transactions'}  className="block-height-tb-transactions">{ row.transactions }</li>
+                <li key={row.id + 'size'}  className="block-height-tb-size">{ row.size }</li>
+            </QueueAnim></Link>);
         });
 
         return (<div className="container" ref="container">
             <div style={{
-                minHeight: '640px',
+                minHeight: '820px',
                 width: '90%',
                 minWidth: '980px',
                 display:'block',
@@ -83,8 +76,8 @@ class Blocks extends Component {
                 color: '#FFF',
                 overflowX: 'hidden'}}>
 
-                <div className="block-text">区块</div>
-                <div className="table">
+                <div className="block-text" style={{ fontSize: '24px' }}>区块</div>
+                <div className="block-table">
                     <div className="block-tb-header" style={{ height: '48px' }}>
                         <ul className="horizontal-list">
                             <li className="block-height-tb-text">高度</li>
@@ -95,10 +88,30 @@ class Blocks extends Component {
                         </ul>
                     </div>
                     <div className="block-tb-body">
-                        <QueueAnim>
-                            { body }
+                        <QueueAnim type="top">
+                            <QueueAnim
+                                key="abc"
+                                type={['right', 'left']}
+                                ease={['easeOutQuart', 'easeInOutQuart']}>
+                                { body }
+                            </QueueAnim>
                         </QueueAnim>
                     </div>
+                </div>
+                <div className="block-pagination">
+                    <QueueAnim type="bottom">
+                        <ReactPaginate key="pagination" previousLabel={"上一页"}
+                                       nextLabel={"下一页"}
+                                       breakClassName={"break-me"}
+                                       initialPage={1}
+                                       pageCount={this.state.data.length}
+                                       marginPagesDisplayed={1}
+                                       pageRangeDisplayed={5}
+                                       onPageChange={ ()=>{} }
+                                       containerClassName={"pagination"}
+                                       subContainerClassName={"pages pagination"}
+                                       activeClassName={"pagination-active"} />
+                    </QueueAnim>
                 </div>
             </div>
         </div>);
