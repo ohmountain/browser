@@ -66,7 +66,7 @@ class Blocks extends Component {
 
         return (<div className="container" ref="container">
             <div style={{
-                minHeight: '640px',
+                minHeight: '720px',
                 width: '90%',
                 minWidth: '980px',
                 display:'block',
@@ -104,7 +104,7 @@ class Blocks extends Component {
                                        nextLabel={"下一页"}
                                        breakClassName={"break-me"}
                                        initialPage={1}
-                                       pageCount={this.state.data.length}
+                                       pageCount={ 20 }
                                        marginPagesDisplayed={1}
                                        pageRangeDisplayed={5}
                                        onPageChange={ ()=>{} }
