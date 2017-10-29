@@ -1591,6 +1591,10 @@ cosmiconfig@^2.1.0, cosmiconfig@^2.1.1:
     parse-json "^2.2.0"
     require-from-string "^1.1.0"
 
+countup.js@^1.8.5:
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/countup.js/-/countup.js-1.9.2.tgz#a9cd7eb39e96d381ddc19943d3f5b6613f139640"
+
 create-ecdh@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/create-ecdh/-/create-ecdh-4.0.0.tgz#888c723596cdf7612f6498233eebd7a35301737d"
@@ -5207,6 +5211,12 @@ react-addons-create-fragment@^15.0.0:
     loose-envify "^1.3.1"
     object-assign "^4.1.0"
 
+react-countup@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-countup/-/react-countup-2.3.0.tgz#c9acd9447609d581186240c8654c2ef0e40667ed"
+  dependencies:
+    countup.js "^1.8.5"
+
 react-dev-utils@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.1.0.tgz#f6f436febd3f4eeb538490319b51c875c1e35bc5"
@@ -5605,6 +5615,10 @@ require-uncached@^1.0.3:
 requires-port@1.0.x, requires-port@1.x.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
+
+reset.css@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/reset.css/-/reset.css-2.0.2.tgz#9c01309c820b72e8f219ebcc8e1411949604f7d7"
 
 resolve-dir@^1.0.0:
   version "1.0.1"
