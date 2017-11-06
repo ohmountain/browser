@@ -1,115 +1,242 @@
 import React, { Component } from 'react';
 import CountUp from 'react-countup';
 import QueueAnim from 'rc-queue-anim';
+import echarts from 'echarts';
 
 class Index extends Component {
+
     constructor(props) {
         super(props);
 
         this.state = {
-          blockHeight: 199009112,
-          originHeight: 0,
-          timmer: null
+            nodes: [1,2,3,4]
         };
     }
 
     componentDidMount() {
-        let timmer = setInterval(() => {
-            this.setState({
-                originHeight: this.state.blockHeight ? this.state.blockHeight - 100: 0,
-                blockHeight: this.state.blockHeight + 1
-            });
-        }, 5000);
-
-        this.setState({ timmer });
-
         setTimeout(() => {
-           this.refs.container.classList.add('container-mounted-position');
-        }, 10);
-    }
+            this.refs.container.classList.add('container-mounted-position');
 
-    componentWillUnmount() {
-        clearInterval(this.state.timmer);
-        this.refs.container.classList.remove('container-mounted-position');
+            // 基于准备好的dom，初始化echarts实例
+            var typeChart = echarts.init(this.refs.nodeType);
+            var healthChart = echarts.init(this.refs.nodeHealth);
+
+            let option1 = {
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'right',
+                    data: ['服务节点','验证节点'],
+                    textStyle:{    //图例文字的样式
+                        color:'#909090',
+                        fontSize:12
+                    }
+                },
+                color: ['#09f', '#039'],
+                series : [
+                    {
+                        name:'节点数量',
+                        type:'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: '18',
+                                    fontWeight: 'bold'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        data:[
+                            {value:3, name:'服务节点'},
+                            {value:1, name:'验证节点'},
+                        ]
+                    }
+                ]
+            };
+
+            let option2 = {
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'right',
+                    data: ['正常节点','故障节点'],
+                    textStyle:{    //图例文字的样式
+                        color:'#909090',
+                        fontSize:12
+                    }
+                },
+                color: ['#09f', '#f22'],
+                series : [
+                    {
+                        name:'节点状态',
+                        type:'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            normal: {
+                                formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                                backgroundColor: '#eee',
+                                borderColor: '#aaa',
+                                borderWidth: 1,
+                                borderRadius: 4,
+                                // shadowBlur:3,
+                                // shadowOffsetX: 2,
+                                // shadowOffsetY: 2,
+                                // shadowColor: '#999',
+                                // padding: [0, 7],
+                                rich: {
+                                    a: {
+                                        color: '#999',
+                                        lineHeight: 16,
+                                        align: 'center'
+                                    },
+                                    // abg: {
+                                    //     backgroundColor: '#333',
+                                    //     width: '100%',
+                                    //     align: 'right',
+                                    //     height: 22,
+                                    //     borderRadius: [4, 4, 0, 0]
+                                    // },
+                                    hr: {
+                                        borderColor: '#aaa',
+                                        width: '100%',
+                                        borderWidth: 0.5,
+                                        height: 0
+                                    },
+                                    b: {
+                                        fontSize: 12,
+                                        lineHeight: 24
+                                    },
+                                    per: {
+                                        color: '#eee',
+                                        backgroundColor: '#334455',
+                                        padding: [2, 4],
+                                        borderRadius: 2
+                                    }
+                                }
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: '14',
+                                    fontWeight: 'bold'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        data:[
+                            {value:3, name:'正常节点'},
+                            {value:1, name:'故障节点'},
+                        ]
+                    }
+                ]
+            };
+
+            setTimeout(() => {
+                typeChart.setOption(option1);
+                healthChart.setOption(option2);
+            }, 10);
+
+        }, 150);
+
     }
 
     render() {
-        return (<div className="container" ref="container" style={{ flexDirection: 'column' }}>
-            <div style={{ width: '100%',display:'flex'}}>
-                <div className="block-height-wrapper">
-                    <div>
-                        <span className="fa fa-fire fa-4x" style={{color: 'red', marginRight: '12px'}}></span>
-                        <span className="block-height-text">
-                            <CountUp
-                                start={this.state.originHeight}
-                                end={this.state.blockHeight}
-                                useEasing={false}
-                                useGrouping={true}/>
-                        </span>
-                    </div>
-                    <div className="block-height-title">块高</div>
-                </div>
 
-                <div className="transaction-wrapper">
-                    <div>
-                        <span className="fa fa-bolt fa-4x" style={{color: 'red', marginRight: '12px'}}></span>
-                        <span className="transaction-number-text">
-                            <CountUp
-                                start={this.state.originHeight - 10002321}
-                                end={this.state.blockHeight - 10002321}
-                                useEasing={false}
-                                useGrouping={true}/>
-                        </span>
-                    </div>
-                    <div className="transaction-title">交易量</div>
-                </div>
+        let x0 = 180;
+        let y0 = 130;
+
+        let nodePointers = this.state.nodes.map((n, i)=> {
+            let x = (x0 + i*20) + 'px';
+            let y = (y0 + (i % 2) * 50) + 'px';
+            let delay = 1000 * i;
+            return (<div className="node-pointer" key={x} style={{ left: x, top: y, transitionDelay: delay + 'ms' }} ref={`node${i}`}>
+                <div style={{ width: '48px',textAlign: 'center',marginLeft: '-20px', marginTop: '14px', color: '#fff'}}>{`节点${i+1}`}</div>
+            </div>);
+        });
+
+        return (<div  className="container" ref="container" style={{ flexDirection: 'column-inverse' }} style={{"margin":"auto", textAlign:"center"}}>
+            <QueueAnim  type='top' delay={200} className="nodes-map">{ nodePointers }</QueueAnim>
+            <div className="general-info-wrapper">
+                <QueueAnim type={["right"]} duration={1250} className="info-wrapper">
+                    <div className="info-title">当前区块高度</div>
+                    <div key="1" className="info-number">10291</div>
+                </QueueAnim>
+                <QueueAnim type="left" className="info-wrapper">
+                    <div className="info-title">节点数量</div>
+                    <div key="2" className="info-number">4</div>
+                </QueueAnim>
+                <QueueAnim type="alpha" duration="2000" className="info-wrapper">
+                    <div className="info-title">交易数量</div>
+                    <div key="3" className="info-number">124</div>
+                </QueueAnim>
             </div>
+            <QueueAnim type='alpha' delay={1200} className="nodes-info">
+                <ul key="1" className="horizontal-list nodes-info-head">
+                    <li>节点名称</li>
+                    <li>出块状态</li>
+                    <li>网络状态</li>
+                    <li>启动时间</li>
+                    <li>操作</li>
+                </ul>
+                <ul key="2" className="horizontal-list nodes-info-body">
+                    <li>Node_1</li>
+                    <li>正常出块</li>
+                    <li>链接正常</li>
+                    <li>201711111901</li>
+                    <li>详细</li>
+                </ul>
+                <ul key="3" className="horizontal-list nodes-info-body">
+                    <li>Node_2</li>
+                    <li>正常出块</li>
+                    <li>链接正常</li>
+                    <li>201711101901</li>
+                    <li>详细</li>
+                </ul>
+                <ul key="4" className="horizontal-list nodes-info-body">
+                    <li>Node_3</li>
+                    <li>正常出块</li>
+                    <li>链接正常</li>
+                    <li>201711121901</li>
+                    <li>详细</li>
+                </ul>
+                <ul key="5" className="horizontal-list nodes-info-body">
+                    <li>Node_4</li>
+                    <li>正常出块</li>
+                    <li>链接正常</li>
+                    <li>201711121901</li>
+                    <li>详细</li>
+                </ul>
+            </QueueAnim>
 
-            <div className="nodes-wrapper">
-                    <QueueAnim className="nodes-list-table" type="bottom" animConfig={{ opacity:[0,1] }} delay={1000}>
-                        <div className="nodes-list-head">
-                            <ul className="horizontal-list">
-                                <li className="node-identifier">标识</li>
-                                <li className="node-type">类型</li>
-                                <li className="node-ip">IP</li>
-                                <li className="node-status">状态</li>
-                            </ul>
-                        </div>
-                        <div className="nodes-list-body">
-                            <ul className="horizontal-list" key={1}>
-                                <li className="node-identifier">node_01</li>
-                                <li className="node-type">类型1</li>
-                                <li className="node-ip">192.168.1.2</li>
-                                <li className="node-status">正常</li>
-                            </ul>
-
-                            <ul className="horizontal-list" key={2}>
-                                <li className="node-identifier">node_02</li>
-                                <li className="node-type">类型2</li>
-                                <li className="node-ip">192.168.1.2</li>
-                                <li className="node-status">正常</li>
-                            </ul>
-
-                            <ul className="horizontal-list" key={3}>
-                                <li className="node-identifier">node_03</li>
-                                <li className="node-type">类型1</li>
-                                <li className="node-ip">192.168.1.3</li>
-                                <li className="node-status">正常</li>
-                            </ul>
-                            <ul className="horizontal-list" key={4}>
-                                <li className="node-identifier">node_04</li>
-                                <li className="node-type">类型1</li>
-                                <li className="node-ip">192.168.1.4</li>
-                                <li className="node-status">正常</li>
-                            </ul>
-                            <ul className="horizontal-list" key={5}>
-                                <li className="node-identifier">node_5</li>
-                                <li className="node-type">类型2</li>
-                                <li className="node-ip">192.168.1.5</li>
-                                <li className="node-status">正常</li>
-                            </ul>
-                        </div>
-                    </QueueAnim>
+            <div className="nodes-type" style={{ displa:'flex', flexDirection:"column", zIndex: '99' }}>
+                <div key="1" style={{ display: 'inline-block', width: '50%', verticalAlign: 'top'}}>
+                    <div ref="nodeType" style={{ height: '240px'}}></div>
+                </div>
+                <div key="2" style={{ display: 'inline-block', width: '50%', height: '100%'}}>
+                    <div ref="nodeHealth" style={{ height: '240px' }}></div>
+                </div>
             </div>
         </div>);
     }

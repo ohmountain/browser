@@ -22,12 +22,6 @@ class Blocks extends Component {
         }, 10);
 
         this.randData();
-
-        let timmer = setInterval(() => {
-            this.randData();
-        }, 10000);
-
-        this.setState({ timmer });
     }
 
     handleCloseBlockDetails() {
@@ -54,8 +48,7 @@ class Blocks extends Component {
             });
         }
 
-        let timmer1 = setTimeout(() => this.setState({ data }), 2000);
-        this.setState({ timmer1 });
+        this.setState({ data }), 2000;
     }
 
     handleBlockItemClick() {
@@ -95,7 +88,7 @@ class Blocks extends Component {
                 color: '#FFF',
                 overflowX: 'hidden'}}>
 
-                <div className="block-text" style={{ fontSize: '24px' }}>区块</div>
+                <div className="block-text" style={{ fontSize: '24px', borderBottom: '1px solid #333', padding: '12px'}}>区块</div>
 
                 <div style={{
                     display: 'flex',
@@ -107,7 +100,7 @@ class Blocks extends Component {
                                 <li className="block-height-tb-text">高度</li>
                                 <li className="block-height-tb-merkle">merkle</li>
                                 <li className="block-height-tb-time">时间</li>
-                                <li className="block-height-tb-transactions">交易数</li>
+                                <li className="block-height-tb-transactions">交易数量</li>
                                 <li className="block-height-tb-size">块大小</li>
                             </ul>
                         </div>
@@ -115,7 +108,7 @@ class Blocks extends Component {
                             <QueueAnim type="top">
                                 <QueueAnim
                                     key="abc"
-                                    type={['right', 'left']}
+                                    type={['alpha']}
                                     ease={['easeOutQuart', 'easeInOutQuart']}>
                                     { body }
                                 </QueueAnim>
