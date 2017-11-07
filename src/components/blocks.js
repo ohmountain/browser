@@ -52,9 +52,6 @@ class Blocks extends Component {
     }
 
     handleBlockItemClick() {
-        this.refs.block_detail.style.transform = "translateX(0px)";
-        this.refs.block_detail.style.opacity=1;
-        this.refs.block_detail.style.width="460px";
     }
 
     componentWillUnmount() {
@@ -72,13 +69,13 @@ class Blocks extends Component {
                 <li key={row.id + 'time'}  className="block-height-tb-time">{ time }</li>
                 <li key={row.id + 'transactions'}  className="block-height-tb-transactions">{ row.transactions }</li>
                 <li key={row.id + 'size'}  className="block-height-tb-size">{ row.size }</li>
+                <li key={row.id + 'detail'}  className="block-height-tb-detail"><Link to={`/block_details/${i+1}`}>详情 >></Link></li>
             </QueueAnim></a>);
         });
 
         return (<div className="container" ref="container">
             <div style={{
                 minHeight: '720px',
-                width: '90%',
                 minWidth: '980px',
                 display:'flex',
                 flexDirection: 'column',
@@ -88,7 +85,7 @@ class Blocks extends Component {
                 color: '#FFF',
                 overflowX: 'hidden'}}>
 
-                <div className="block-text" style={{ fontSize: '24px', borderBottom: '1px solid #333', padding: '12px'}}>区块</div>
+                <div className="block-text" style={{ fontSize: '24px'}}>区块</div>
 
                 <div style={{
                     display: 'flex',
@@ -102,6 +99,7 @@ class Blocks extends Component {
                                 <li className="block-height-tb-time">时间</li>
                                 <li className="block-height-tb-transactions">交易数量</li>
                                 <li className="block-height-tb-size">块大小</li>
+                                <li className="block-height-tb-detail">操作</li>
                             </ul>
                         </div>
                         <div className="block-tb-body">
@@ -114,44 +112,6 @@ class Blocks extends Component {
                                 </QueueAnim>
                             </QueueAnim>
                         </div>
-                    </div>
-                    <div style={{
-                        width: '0px',
-                        opacity: 0,
-                        marginLeft: '16px',
-                        marginTop: '16px',
-                        height: '380px',
-                        overflow: 'hidden',
-                        transitionProperty: 'width,opacity, transform',
-                        transitionDuration: '1s',
-                    }} ref="block_detail">
-                        <div className="block-detail-head">区块详情 <span onClick={ this.handleCloseBlockDetails.bind(this) } className="fa fa-close" style={{float:"right"}}></span></div>
-                        <div className="block-detail-body">
-                            <div className="block-detail-item">
-                                <div className="key"><div style={{ padding: "0 14px" }}>高度</div></div>
-                                <div className="value"><div style={{ padding: "0 14px" }}>192831231</div></div>
-                            </div>
-                            <div className="block-detail-item">
-                                <div className="key"><div style={{ padding: "0 14px" }}>出块时间</div></div>
-                                <div className="value"><div style={{ padding: "0 14px" }}>2017-11-21 19:00:00</div></div>
-                            </div>
-                            <div className="block-detail-item">
-                                <div className="key"><div style={{ padding: "0 14px" }}>区块Hash</div></div>
-                                <div className="value"><div style={{ padding: "0 14px" }}>b0498b62e12644d2d9a73d1aa44b8b25675d393b1d76d309dfae09069edb75ad</div></div>
-                            </div>
-                            <div className="block-detail-item">
-                                <div className="key"><div style={{ padding: "0 14px" }}>交易数</div></div>
-                                <div className="value"><div style={{ padding: "0 14px" }}>1231</div></div>
-                            </div>
-                            <div className="block-detail-item">
-                                <div className="key"><div style={{ padding: "0 14px" }}>块大小</div></div>
-                                <div className="value"><div style={{ padding: "0 14px" }}>245</div></div>
-                            </div>
-                            <div className="block-detail-item">
-                                <div className="key"><div style={{ padding: "0 14px" }}>区块Merkle</div></div>
-                                <div className="value"><div style={{ padding: "0 14px" }}>b0498b62e12644d2d9a73d1aa44b8b25675d393b1d76d309dfae09069edb75ad</div></div>
-                            </div>
-                       </div>
                     </div>
                 </div>
 

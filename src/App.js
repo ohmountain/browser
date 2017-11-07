@@ -9,6 +9,7 @@ import './App.css';
 import Index from './components/index.js';
 import Blocks from './components/blocks.js';
 import Transactions from './components/transactions.js';
+import BlockDetails from './components/block_details.js';
 
 class App extends Component {
   render() {
@@ -27,7 +28,8 @@ class App extends Component {
                 <div className="content">
                     <Route path="/" exact component={ Index } />
                     <Route path="/blocks" component={ Blocks } />
-                    <Route path="/transactions" component={ Transactions } /> 
+                    <Route path="/transactions" component={ Transactions } />
+                    <Route path="/block_details/:id" component={ BlockDetails } />
                 </div>
             </div>
         </Router>

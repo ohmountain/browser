@@ -30,7 +30,7 @@ class Index extends Component {
                     orient: 'vertical',
                     left: 'right',
                     data: ['服务节点','验证节点'],
-                    textStyle:{    //图例文字的样式
+                    textStyle:{
                         color:'#909090',
                         fontSize:12
                     }
