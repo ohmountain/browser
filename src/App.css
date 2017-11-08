@@ -294,7 +294,7 @@ html,body {
     background-image:linear-gradient(to right,#09f, green, #083, #09f);
 }
 
-.block-tb-body div > a {
+.block-tb-body div > div {
     display: block;
     background-color: #e0e0e0;
     color: #393939;
@@ -303,7 +303,7 @@ html,body {
     height: 32px;
     font-size: 14px;
 }
-.block-tb-body div > a:nth-child(2n+1){
+.block-tb-body div > div:nth-child(2n+1){
     background-color: #efefef;
 }
 
@@ -318,6 +318,8 @@ html,body {
 
 .block-height-tb-merkle {
     width: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .block-height-tb-time {
     width: 20%;

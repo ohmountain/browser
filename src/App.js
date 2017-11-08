@@ -17,7 +17,7 @@ class App extends Component {
         <Router>
             <div className="App">
                 <div className="nav">
-                    <div className="logo">区块链浏览器</div>
+                    <Link className="logo" to="/" style={{ textDecoration: 'none' }}>区块链浏览器</Link>
                     <ul className="menu">
                         <li><Link to="/">首页</Link></li>
                         <li><Link to="/blocks">区块</Link></li>

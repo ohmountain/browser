@@ -41,7 +41,7 @@ class Blocks extends Component {
             data.push({
                 id: i+ date.getTime(),
                 height: i + date.getTime(),
-                merkle: Math.random(),
+                merkle: Math.random().toString().trim(/0\./),
                 time: date,
                 transactions: Math.ceil(Math.random() * 100),
                 size: 245
@@ -63,14 +63,14 @@ class Blocks extends Component {
     render() {
         let body = this.state.data.map((row, i) => {
             let time = `${ 1990 + row.time.getYear()}-${row.time.getMonth()+1}-${row.time.getDate()} ${row.time.getHours()}:${row.time.getMinutes()}:${row.time.getSeconds()}`;
-            return (<a onClick={ this.handleBlockItemClick.bind(this) } key={ row.id }><QueueAnim type="bottom" component="ul" className="horizontal-list">
+            return (<div onClick={ this.handleBlockItemClick.bind(this) } key={ row.id }><QueueAnim type="bottom" component="ul" className="horizontal-list">
                 <li key={row.id + 'height'} className="block-height-tb-text">{ row.height }</li>
                 <li key={row.id + 'merkle'}  className="block-height-tb-merkle">{ row.merkle }</li>
                 <li key={row.id + 'time'}  className="block-height-tb-time">{ time }</li>
                 <li key={row.id + 'transactions'}  className="block-height-tb-transactions">{ row.transactions }</li>
                 <li key={row.id + 'size'}  className="block-height-tb-size">{ row.size }</li>
                 <li key={row.id + 'detail'}  className="block-height-tb-detail"><Link to={`/block_details/${i+1}`}>详情 >></Link></li>
-            </QueueAnim></a>);
+            </QueueAnim></div>);
         });
 
         return (<div className="container" ref="container">
@@ -103,8 +103,9 @@ class Blocks extends Component {
                             </ul>
                         </div>
                         <div className="block-tb-body">
-                            <QueueAnim type="top">
+                            <QueueAnim type="top" component="div">
                                 <QueueAnim
+                                    component="div"
                                     key="abc"
                                     type={['alpha']}
                                     ease={['easeOutQuart', 'easeInOutQuart']}>
