@@ -21,14 +21,12 @@ class App extends Component {
                     <ul className="menu">
                         <li><Link to="/">首页</Link></li>
                         <li><Link to="/blocks">区块</Link></li>
-                        <li><Link to="/transactions">交易</Link></li>
                     </ul>
                 </div>
 
                 <div className="content">
                     <Route path="/" exact component={ Index } />
                     <Route path="/blocks" component={ Blocks } />
-                    <Route path="/transactions" component={ Transactions } />
                     <Route path="/block_details/:id" component={ BlockDetails } />
                 </div>
             </div>

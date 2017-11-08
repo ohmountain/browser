@@ -88,7 +88,25 @@ class BlockDetails extends Component {
             </div>
           </div>
         </div>
-        <div key="3" className="transaction-detail">交易详情</div>
+        <div key="3" className="transaction-details">
+            <div className="transaction-details-head"><span className="fa fa-database" style={{ color: '#00ee22' }} /> 交易明细 -- 45dsadsa7das1d2wq4a1d2WaazXxaaw$saasaadsd4sa56socizm,zpbjioe</div>
+            <div className="transaction-details-body">
+                <ul className="horizontal-list transaction-details-table-heading">
+                    <li>区块高度</li>
+                    <li>发起时间</li>
+                    <li>确认时间</li>
+                    <li>交易类型</li>
+                    <li>资产类别</li>
+                </ul>
+                <ul className="horizontal-list transaction-details-table-body">
+                    <li>154782124594896</li>
+                    <li>20191231202212</li>
+                    <li>20191231202213</li>
+                    <li>转账交易</li>
+                    <li>ABCF1421</li>
+                </ul>
+            </div>
+        </div>
       </QueueAnim>
     </div>);
   }
