@@ -182,7 +182,7 @@ class Index extends Component {
             <div className="general-info-wrapper">
                 <QueueAnim type={["right"]} duration={1250} className="info-wrapper">
                     <div className="info-title">当前区块高度</div>
-                    <div key="1" className="info-number"><Flip number={ 10291 } sep=',' /></div>
+                    <div key="1" className="info-number"><Flip number={ 18888898 } sep=',' /></div>
                 </QueueAnim>
                 <QueueAnim type="left" className="info-wrapper">
                     <div className="info-title">节点数量</div>

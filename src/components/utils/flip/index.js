@@ -90,7 +90,7 @@ class Flip extends Component {
         let numbers = this.state.to.split('');
         let len     = numbers.length;
         let child   = numbers.map((n, i) => {
-            return (<Number key={i} number={ parseInt(n)} height={36} width={24} delay={ (len - i)*50 }/>);
+            return (<Number key={i} number={ parseInt(n)} height={36} width={24} delay={ (len - i)*50 } duration={450}/>);
         });
 
         return <div>{ child }</div>
