@@ -193,12 +193,26 @@ class Index extends Component {
 
     render() {
 
-        let x0 = 180;
-        let y0 = 130;
+        let x0 = 272;
+        let y0 = 194;
+
+        let points = [{
+            x: 272,
+            y: 194
+        },{
+            x: 456,
+            y: 170
+        },{
+            x: 320,
+            y: 170
+        },{
+            x: 280,
+            y: 230
+        }];
 
         let nodePointers = this.state.nodes.map((n, i)=> {
-            let x = (x0 + i*20) + 'px';
-            let y = (y0 + (i % 2) * 50) + 'px';
+            let x = points[i].x + 'px';
+            let y = points[i].y + 'px';
             let delay = 1000 * i;
             return (<div className="node-pointer" key={x} style={{ left: x, top: y, transitionDelay: delay + 'ms' }} ref={`node${i}`}>
                 <div style={{ width: '48px',textAlign: 'center',marginLeft: '-20px', marginTop: '14px', color: '#fff'}}>{`节点${i+1}`}</div>
