@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CountUp from 'react-countup';
 import QueueAnim from 'rc-queue-anim';
 import echarts from 'echarts';
+import Flip from './utils/flip/index.js';
 
 class Index extends Component {
 
@@ -181,7 +182,7 @@ class Index extends Component {
             <div className="general-info-wrapper">
                 <QueueAnim type={["right"]} duration={1250} className="info-wrapper">
                     <div className="info-title">当前区块高度</div>
-                    <div key="1" className="info-number">10291</div>
+                    <div key="1" className="info-number"><Flip number={ 10291 } sep=',' /></div>
                 </QueueAnim>
                 <QueueAnim type="left" className="info-wrapper">
                     <div className="info-title">节点数量</div>
