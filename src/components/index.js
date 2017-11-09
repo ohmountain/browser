@@ -209,6 +209,19 @@ class Index extends Component {
             </div>);
         });
 
+        let indexPageBlocks = [];
+        for (let i=0; i<10; i++) {
+            indexPageBlocks.push(<ul className="index-page-block-tb-body horizontal-list">
+                <li>19561213</li>
+                <li>1秒前</li>
+                <li>4</li>
+                <li>0</li>
+                <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                <li>1</li>
+                <li>254</li>
+            </ul>);
+        }
+
         return (<div  className="container" ref="container" style={{ flexDirection: 'column-inverse' }} style={{"margin":"auto", textAlign:"center"}}>
             <QueueAnim  type='top' delay={200} className="nodes-map">{ nodePointers }</QueueAnim>
 
@@ -266,200 +279,40 @@ class Index extends Component {
                             <li>区块大小</li>
                         </ul>
 
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
 
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
-
-                        <ul className="index-page-block-tb-body horizontal-list">
-                            <li>19561213</li>
-                            <li>1秒前</li>
-                            <li>4</li>
-                            <li>0</li>
-                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
-                            <li>1</li>
-                            <li>254</li>
-                        </ul>
+                        <div>{ indexPageBlocks  }</div>
                     </div>
                 </div>
             </RcScrollAnim.Parallax>
+
+            <RcScrollAnim.Parallax animation={{ opacity: 1, x: 0, playScale: [0, 0.4] }} style={{ transform: 'translateX(-100px)', opacity: 0.0 }}>
+                <div className="index-page-blocks">
+                    <div className="index-page-blocks-head">
+                        <div className="title">交易信息</div>
+                        <div className="more">
+                            <RcScrollAnim.Parallax animation={{ opacity: 1, x: 0, playScale: [0, 0.5] }} style={{ transform: 'translateX(-100px)', opacity: 0.0 }}>
+                                <Link to="/">
+                                    更多交易 <span className='fa fa-angle-double-right' />
+                                </Link>
+                            </RcScrollAnim.Parallax>
+                        </div>
+                    </div>
+                    <div className="index-page-blocks-body">
+
+                        <ul className="index-page-block-tb-head horizontal-list">
+                            <li>高度</li>
+                            <li>出块时间</li>
+                            <li>交易数</li>
+                            <li>费用</li>
+                            <li className="book-keeper">记账人</li>
+                            <li>版本</li>
+                            <li>区块大小</li>
+                        </ul>
+                        <div> { indexPageBlocks } </div>
+                    </div>
+                </div>
+            </RcScrollAnim.Parallax>
+
         </div>);
     }
 }

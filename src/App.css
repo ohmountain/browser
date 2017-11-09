@@ -616,3 +616,24 @@ ul.pagination > li > a:hover{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+
+.footer {
+    position: relative;
+    height: 64px;
+    margin-top: 64px;
+    background: #333;
+    color: #FFF;
+    line-height: 64px;
+    text-align: center;
+}
+
+.footer:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2px;
+    width: 100%;
+    background-image:linear-gradient(to right,#333, #09f, green, #083, #333);
+}

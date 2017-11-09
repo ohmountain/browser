@@ -29,6 +29,8 @@ class App extends Component {
                     <Route path="/blocks" component={ Blocks } />
                     <Route path="/block_details/:id" component={ BlockDetails } />
                 </div>
+
+                <div className="footer">&copy;贵州远东诚信管理有限公司</div>
             </div>
         </Router>
     );
