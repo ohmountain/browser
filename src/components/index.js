@@ -10,7 +10,9 @@ class Index extends Component {
         super(props);
 
         this.state = {
-            nodes: [1,2,3,4]
+            nodes: [1,2,3,4],
+            blockHeight: 1999998,
+            transactions: 124
         };
     }
 
@@ -161,6 +163,17 @@ class Index extends Component {
 
         }, 150);
 
+
+        this.tm = setInterval(() => {
+            this.setState({
+                blockHeight: this.state.blockHeight + 2,
+                transactions: this.state.transactions + Math.ceil(Math.random() * 10)
+            });
+        }, 5000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.tm);
     }
 
     render() {
@@ -182,7 +195,7 @@ class Index extends Component {
             <div className="general-info-wrapper">
                 <QueueAnim type={["right"]} duration={1250} className="info-wrapper">
                     <div className="info-title">当前区块高度</div>
-                    <div key="1" className="info-number"><Flip number={ 18888898 } sep=',' /></div>
+                    <div key="1" className="info-number"><Flip number={ this.state.blockHeight } sep=',' /></div>
                 </QueueAnim>
                 <QueueAnim type="left" className="info-wrapper">
                     <div className="info-title">节点数量</div>
@@ -190,7 +203,7 @@ class Index extends Component {
                 </QueueAnim>
                 <QueueAnim type="alpha" duration="2000" className="info-wrapper">
                     <div className="info-title">交易数量</div>
-                    <div key="3" className="info-number">124</div>
+                    <div key="3" className="info-number"><Flip number={ this.state.transactions } sep=',' /></div>
                 </QueueAnim>
             </div>
             <QueueAnim type='alpha' delay={1200} className="nodes-info">

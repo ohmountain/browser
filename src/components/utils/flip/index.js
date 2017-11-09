@@ -52,6 +52,7 @@ Number.propTypes = {
     timingFunction: PropTypes.oneOf(['linear', 'ease', 'ease-in', 'ease-out', 'ease-in-out'])
 }
 
+let tm1 = null;
 
 class Flip extends Component {
     constructor(props) {
@@ -72,25 +73,25 @@ class Flip extends Component {
         }
     }
 
-    componentDidMount() {
+    componentWillReceiveProps(props) {
+            this.setState({
+                to: props.number.toString()
+            });
+    }
+
+   componentDidMount() {
         setTimeout(() => {
             this.setState({
                 to: this.state.number.toString()
             });
         }, 1000);
-
-        setInterval(() => {
-            this.setState({
-                to: (parseInt(this.state.to) + 1).toString()
-            });
-        }, 5000);
     }
 
     render() {
         let numbers = this.state.to.split('');
         let len     = numbers.length;
         let child   = numbers.map((n, i) => {
-            return (<Number key={i} number={ parseInt(n)} height={36} width={24} delay={ (len - i)*50 } duration={450}/>);
+            return (<Number key={i} number={ parseInt(n)} height={36} width={24} duration={ (len - i) * 450}/>);
         });
 
         return <div>{ child }</div>
