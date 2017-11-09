@@ -9,10 +9,13 @@ class Index extends Component {
     constructor(props) {
         super(props);
 
+        let blockHeight  = window.localStorage.getItem('blockHeight');
+        let transactions = window.localStorage.getItem('transactions');
+
         this.state = {
             nodes: [1,2,3,4],
-            blockHeight: 1999998,
-            transactions: 124
+            blockHeight: blockHeight ? blockHeight : 0,
+            transactions: transactions ? transactions : 0
         };
     }
 
@@ -165,9 +168,21 @@ class Index extends Component {
 
 
         this.tm = setInterval(() => {
+
+            let { blockHeight, transactions } = this.state;
+
+            blockHeight = parseInt(blockHeight);
+            transactions = parseInt(transactions);
+
+            blockHeight += 2;
+            transactions += Math.ceil(Math.random() * 10);
+
+            window.localStorage.setItem('blockHeight', blockHeight);
+            window.localStorage.setItem('transactions', transactions);
+
             this.setState({
-                blockHeight: this.state.blockHeight + 2,
-                transactions: this.state.transactions + Math.ceil(Math.random() * 10)
+                blockHeight,
+                transactions
             });
         }, 5000);
     }
