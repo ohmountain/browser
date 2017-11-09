@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
 import QueueAnim from 'rc-queue-anim';
 import RcScrollAnim from 'rc-scroll-anim';
@@ -203,7 +204,7 @@ class Index extends Component {
             let x = points[i].x + 'px';
             let y = points[i].y + 'px';
             let delay = 1000 * i;
-            return (<div className="node-pointer" key={x} style={{ left: x, top: y, transitionDelay: delay + 'ms' }} ref={`node${i}`}>
+            return (<div className="node-pointer" key={i} style={{ left: x, top: y, transitionDelay: delay + 'ms' }} ref={`node${i}`}>
                 <div style={{ width: '48px',textAlign: 'center',marginLeft: '-20px', marginTop: '14px', color: '#fff'}}>{`节点${i+1}`}</div>
             </div>);
         });
@@ -211,43 +212,254 @@ class Index extends Component {
         return (<div  className="container" ref="container" style={{ flexDirection: 'column-inverse' }} style={{"margin":"auto", textAlign:"center"}}>
             <QueueAnim  type='top' delay={200} className="nodes-map">{ nodePointers }</QueueAnim>
 
-                <div className="general-info-wrapper">
-                    <QueueAnim type={["right"]} duration={1250} className="info-wrapper">
-                        <div className="info-title">当前区块高度</div>
-                        <div key="1" className="info-number"><Flip number={ this.state.blockHeight } sep=',' /></div>
-                    </QueueAnim>
-                    <QueueAnim type="left" className="info-wrapper">
-                        <div className="info-title">节点数量</div>
-                        <div key="2" className="info-number">4</div>
-                    </QueueAnim>
-                    <QueueAnim type="alpha" duration="2000" className="info-wrapper">
-                        <div className="info-title">交易数量</div>
-                        <div key="3" className="info-number"><Flip number={ this.state.transactions } sep=',' /></div>
-                    </QueueAnim>
-                </div>
+            <div className="general-info-wrapper">
+                <QueueAnim key="ssss" type={["right"]} duration={1250} className="info-wrapper">
+                    <div className="info-title">当前区块高度</div>
+                    <div key="1" className="info-number"><Flip number={ this.state.blockHeight } sep=',' /></div>
+                </QueueAnim>
+                <QueueAnim type="left" className="info-wrapper">
+                    <div className="info-title">节点数量</div>
+                    <div key="2" className="info-number">4</div>
+                </QueueAnim>
+                <QueueAnim type="alpha" duration={2000} className="info-wrapper">
+                    <div className="info-title">交易数量</div>
+                    <div key="3" className="info-number"><Flip number={ this.state.transactions } sep=',' /></div>
+                </QueueAnim>
+            </div>
 
-                <RcScrollAnim.Parallax animation={{ opacity: 1, scale:1, playScale: [0, 1] }}
-                                  style={{ transform: 'scale(0.9)', opacity: 0.9 }}>
-                    <div className="nodes-type" style={{ displa:'flex', flexDirection:"column", zIndex: '99' }}>
-                        <div key="1" style={{ display: 'inline-block', width: '50%', verticalAlign: 'top'}}>
-                            <div ref="nodeType" style={{ height: '240px'}}></div>
-                        </div>
-                        <div key="2" style={{ display: 'inline-block', width: '50%', height: '100%'}}>
-                            <div ref="nodeHealth" style={{ height: '240px' }}></div>
-                        </div>
+            <RcScrollAnim.Parallax animation={{ opacity: 1, scale:1, playScale: [0, 1] }}
+                                   style={{ transform: 'scale(0.9)', opacity: 0.9 }}>
+                <div className="nodes-type" style={{ displa:'flex', flexDirection:"column", zIndex: '99' }}>
+                    <div key="1" style={{ display: 'inline-block', width: '50%', verticalAlign: 'top'}}>
+                        <div ref="nodeType" style={{ height: '240px'}}></div>
                     </div>
-                </RcScrollAnim.Parallax >
-
-                <div className="index-blocks">
-                    <div className="index-block-title"></div>
+                    <div key="2" style={{ display: 'inline-block', width: '50%', height: '100%'}}>
+                        <div ref="nodeHealth" style={{ height: '240px' }}></div>
+                    </div>
                 </div>
+            </RcScrollAnim.Parallax >
 
+            <div className="index-blocks">
+                <div className="index-block-title"></div>
+            </div>
+
+            <RcScrollAnim.Parallax animation={{ opacity: 1, x: 0, playScale: [0, 0.8] }} style={{ transform: 'translateX(100px)', opacity: 0.0 }}>
                 <div className="index-page-blocks">
                     <div className="index-page-blocks-head">
                         <div className="title">区块信息</div>
-                        <div className="more"><span className='fa fa-next' /></div>
+                        <div className="more">
+                            <RcScrollAnim.Parallax animation={{ opacity: 1, x: 0, playScale: [0, 1] }} style={{ transform: 'translateX(-100px)', opacity: 0.0 }}>
+                                <Link to="/blocks">
+                                    更多区块 <span className='fa fa-angle-double-right' />
+                                </Link>
+                            </RcScrollAnim.Parallax>
+                        </div>
+                    </div>
+                    <div className="index-page-blocks-body">
+                        <ul className="index-page-block-tb-head horizontal-list">
+                            <li>高度</li>
+                            <li>出块时间</li>
+                            <li>交易数</li>
+                            <li>费用</li>
+                            <li className="book-keeper">记账人</li>
+                            <li>版本</li>
+                            <li>区块大小</li>
+                        </ul>
+
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
+
+                        <ul className="index-page-block-tb-body horizontal-list">
+                            <li>19561213</li>
+                            <li>1秒前</li>
+                            <li>4</li>
+                            <li>0</li>
+                            <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
+                            <li>1</li>
+                            <li>254</li>
+                        </ul>
                     </div>
                 </div>
+            </RcScrollAnim.Parallax>
         </div>);
     }
 }

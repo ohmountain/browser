@@ -546,10 +546,6 @@ ul.pagination > li > a:hover{
     text-align: center;
 }
 
-.index-page-blocks {
-    min-height: 1920px;
-}
-
 .index-page-blocks-head {
     height: 48px;
     margin-top: 48px;
@@ -557,11 +553,66 @@ ul.pagination > li > a:hover{
     padding: 0 32px;
     position: relative;
     background-color: rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid #00af00;
 }
 
 .index-page-blocks-head .title {
     position: absolute;
     left: 32px;
     font-size: 24px;
-    color: #09F;
+    color: #FFF;
+}
+
+.index-page-blocks-head .more {
+    position: absolute;
+    right: 32px;
+    font-size: 16px;
+    color: #0FF;
+}
+
+.index-page-blocks-head .more a {
+    color: inherit;
+    text-decoration: none;
+}
+.index-page-block-tb-head {
+    background-color: #042;
+    height: 48px;
+    color: #FFF;
+}
+
+.index-page-block-tb-head li {
+    height: 48px;
+    line-height: 48px;
+    width: 120px;
+    font-weight: bolder;
+    border-bottom: 1px dotted  #898989;
+}
+
+.index-page-block-tb-head .book-keeper {
+    width: 560px;
+}
+
+
+.index-page-block-tb-body {
+    background-color: #fefefe;
+    height: 42px;
+}
+
+.index-page-block-tb-body:nth-child(2n) {
+    background-color: #efefef;
+    height: 42px;
+}
+
+.index-page-block-tb-body li {
+    height: 42px;
+    line-height: 42px;
+    width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.index-page-block-tb-body .book-keeper {
+    width: 560px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
