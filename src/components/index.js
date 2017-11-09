@@ -103,24 +103,12 @@ class Index extends Component {
                                 borderColor: '#aaa',
                                 borderWidth: 1,
                                 borderRadius: 4,
-                                // shadowBlur:3,
-                                // shadowOffsetX: 2,
-                                // shadowOffsetY: 2,
-                                // shadowColor: '#999',
-                                // padding: [0, 7],
                                 rich: {
                                     a: {
                                         color: '#999',
                                         lineHeight: 16,
                                         align: 'center'
                                     },
-                                    // abg: {
-                                    //     backgroundColor: '#333',
-                                    //     width: '100%',
-                                    //     align: 'right',
-                                    //     height: 22,
-                                    //     borderRadius: [4, 4, 0, 0]
-                                    // },
                                     hr: {
                                         borderColor: '#aaa',
                                         width: '100%',
@@ -198,17 +186,17 @@ class Index extends Component {
         let y0 = 194;
 
         let points = [{
-            x: 272,
-            y: 194
+            x: 500,
+            y: 350
         },{
-            x: 456,
-            y: 170
+            x: 500,
+            y: 410
         },{
-            x: 320,
-            y: 170
+            x: 810,
+            y: 300
         },{
-            x: 280,
-            y: 230
+            x: 566,
+            y: 310
         }];
 
         let nodePointers = this.state.nodes.map((n, i)=> {
@@ -238,7 +226,6 @@ class Index extends Component {
                     </QueueAnim>
                 </div>
 
-
                 <RcScrollAnim.Parallax animation={{ opacity: 1, scale:1, playScale: [0, 1] }}
                                   style={{ transform: 'scale(0.9)', opacity: 0.9 }}>
                     <div className="nodes-type" style={{ displa:'flex', flexDirection:"column", zIndex: '99' }}>
@@ -255,7 +242,12 @@ class Index extends Component {
                     <div className="index-block-title"></div>
                 </div>
 
-                <div style={{ height: '980px' }}></div>
+                <div className="index-page-blocks">
+                    <div className="index-page-blocks-head">
+                        <div className="title">区块信息</div>
+                        <div className="more"><span className='fa fa-next' /></div>
+                    </div>
+                </div>
         </div>);
     }
 }

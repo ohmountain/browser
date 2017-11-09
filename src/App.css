@@ -263,7 +263,6 @@ html,body {
     text-align: center;
 }
 
-
 .nodes-info-body {
     width: 100%;
     height: 32px;
@@ -545,4 +544,24 @@ ul.pagination > li > a:hover{
 .transaction-details-body li {
     width: 20%;
     text-align: center;
+}
+
+.index-page-blocks {
+    min-height: 1920px;
+}
+
+.index-page-blocks-head {
+    height: 48px;
+    margin-top: 48px;
+    line-height: 48px;
+    padding: 0 32px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.index-page-blocks-head .title {
+    position: absolute;
+    left: 32px;
+    font-size: 24px;
+    color: #09F;
 }
