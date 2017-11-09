@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CountUp from 'react-countup';
 import QueueAnim from 'rc-queue-anim';
+import RcScrollAnim from 'rc-scroll-anim';
 import echarts from 'echarts';
 import Flip from './utils/flip/index.js';
 
@@ -221,66 +222,40 @@ class Index extends Component {
 
         return (<div  className="container" ref="container" style={{ flexDirection: 'column-inverse' }} style={{"margin":"auto", textAlign:"center"}}>
             <QueueAnim  type='top' delay={200} className="nodes-map">{ nodePointers }</QueueAnim>
-            <div className="general-info-wrapper">
-                <QueueAnim type={["right"]} duration={1250} className="info-wrapper">
-                    <div className="info-title">当前区块高度</div>
-                    <div key="1" className="info-number"><Flip number={ this.state.blockHeight } sep=',' /></div>
-                </QueueAnim>
-                <QueueAnim type="left" className="info-wrapper">
-                    <div className="info-title">节点数量</div>
-                    <div key="2" className="info-number">4</div>
-                </QueueAnim>
-                <QueueAnim type="alpha" duration="2000" className="info-wrapper">
-                    <div className="info-title">交易数量</div>
-                    <div key="3" className="info-number"><Flip number={ this.state.transactions } sep=',' /></div>
-                </QueueAnim>
-            </div>
-            <QueueAnim type='alpha' delay={1200} className="nodes-info">
-                <ul key="1" className="horizontal-list nodes-info-head">
-                    <li>节点名称</li>
-                    <li>出块状态</li>
-                    <li>网络状态</li>
-                    <li>启动时间</li>
-                    <li>操作</li>
-                </ul>
-                <ul key="2" className="horizontal-list nodes-info-body">
-                    <li>Node_1</li>
-                    <li>正常出块</li>
-                    <li>链接正常</li>
-                    <li>201711111901</li>
-                    <li>详细</li>
-                </ul>
-                <ul key="3" className="horizontal-list nodes-info-body">
-                    <li>Node_2</li>
-                    <li>正常出块</li>
-                    <li>链接正常</li>
-                    <li>201711101901</li>
-                    <li>详细</li>
-                </ul>
-                <ul key="4" className="horizontal-list nodes-info-body">
-                    <li>Node_3</li>
-                    <li>正常出块</li>
-                    <li>链接正常</li>
-                    <li>201711121901</li>
-                    <li>详细</li>
-                </ul>
-                <ul key="5" className="horizontal-list nodes-info-body">
-                    <li>Node_4</li>
-                    <li>正常出块</li>
-                    <li>链接正常</li>
-                    <li>201711121901</li>
-                    <li>详细</li>
-                </ul>
-            </QueueAnim>
 
-            <div className="nodes-type" style={{ displa:'flex', flexDirection:"column", zIndex: '99' }}>
-                <div key="1" style={{ display: 'inline-block', width: '50%', verticalAlign: 'top'}}>
-                    <div ref="nodeType" style={{ height: '240px'}}></div>
+                <div className="general-info-wrapper">
+                    <QueueAnim type={["right"]} duration={1250} className="info-wrapper">
+                        <div className="info-title">当前区块高度</div>
+                        <div key="1" className="info-number"><Flip number={ this.state.blockHeight } sep=',' /></div>
+                    </QueueAnim>
+                    <QueueAnim type="left" className="info-wrapper">
+                        <div className="info-title">节点数量</div>
+                        <div key="2" className="info-number">4</div>
+                    </QueueAnim>
+                    <QueueAnim type="alpha" duration="2000" className="info-wrapper">
+                        <div className="info-title">交易数量</div>
+                        <div key="3" className="info-number"><Flip number={ this.state.transactions } sep=',' /></div>
+                    </QueueAnim>
                 </div>
-                <div key="2" style={{ display: 'inline-block', width: '50%', height: '100%'}}>
-                    <div ref="nodeHealth" style={{ height: '240px' }}></div>
+
+
+                <RcScrollAnim.Parallax animation={{ opacity: 1, scale:1, playScale: [0, 1] }}
+                                  style={{ transform: 'scale(0.9)', opacity: 0.9 }}>
+                    <div className="nodes-type" style={{ displa:'flex', flexDirection:"column", zIndex: '99' }}>
+                        <div key="1" style={{ display: 'inline-block', width: '50%', verticalAlign: 'top'}}>
+                            <div ref="nodeType" style={{ height: '240px'}}></div>
+                        </div>
+                        <div key="2" style={{ display: 'inline-block', width: '50%', height: '100%'}}>
+                            <div ref="nodeHealth" style={{ height: '240px' }}></div>
+                        </div>
+                    </div>
+                </RcScrollAnim.Parallax >
+
+                <div className="index-blocks">
+                    <div className="index-block-title"></div>
                 </div>
-            </div>
+
+                <div style={{ height: '980px' }}></div>
         </div>);
     }
 }

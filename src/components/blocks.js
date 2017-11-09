@@ -76,8 +76,9 @@ class Blocks extends Component {
         return (<div className="container" ref="container">
             <div style={{
                 minHeight: '720px',
-                minWidth: '980px',
-                display:'flex',
+                width: '1490px',
+                display: 'block',
+                margin: 'auto',
                 flexDirection: 'column',
                 textAlign: 'left',
                 borderRadius: '4px',
