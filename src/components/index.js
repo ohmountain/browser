@@ -266,23 +266,33 @@ class Index extends Component {
             <div className="index-page-additional-info">
                 <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0, 1] }}
                                        style={{ transform: 'translateY(64px)' }} className="adt-info">
-                        <span>2468 <span className="unit">天</span></span>
-                        <div>系统运行时间</div>
+                        <Flip style={{ display: 'inline-block' }} width={14} height={24} number={ 2468 } styles={{ color: '#09f' }} />
+                        <div className="unit">天</div>
+                        <div className="adt-info-title">系统运行时间</div>
                 </RcScrollAnim.Parallax >
                 <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0, 1] }}
                                        style={{ transform: 'translateY(64px)' }} className="adt-info">
-                    <span>100000000 <span className="unit">个</span></span>
-                    <div>发行量</div>
+
+                    <Flip style={{ display: 'inline-block', color: 'red' }} width={14} height={24} duration={50} delay={1000} number={ 100000000 - 1 } />
+                    <div className="unit">个</div>
+                    <div className="adt-info-title">发行量</div>
+
                 </RcScrollAnim.Parallax >
                 <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0, 1] }}
                                        style={{ transform: 'translateY(64px)' }} className="adt-info">
-                    <span>5164872156 <span className="unit">个</span></span>
-                    <div>系统有效地址</div>
+
+                    <Flip style={{ display: 'inline-block', color: 'yellow' }} width={14} height={24} duration={50} delay={1500} number={ 54878952 } />
+                    <div className="unit">个</div>
+                    <div className="adt-info-title">有效地址</div>
+
                 </RcScrollAnim.Parallax >
                 <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0, 1] }}
                                        style={{ transform: 'translateY(64px)' }} className="adt-info">
-                    <span>564872156 <span className="unit">个</span></span>
-                    <div>系统有效地址</div>
+
+                    <Flip style={{ display: 'inline-block', color: '#0f0' }} width={14} height={24} duration={50} delay={2000} number={ 984562 } />
+                    <div className="unit">个</div>
+                    <div className="adt-info-title">持有人</div>
+
                 </RcScrollAnim.Parallax >
             </div>
 

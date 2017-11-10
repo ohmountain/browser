@@ -564,13 +564,17 @@ ul.pagination > li > a:hover{
     font-size: 24px;
 }
 
-.index-page-additional-info .adt-info span .unit{
-    vertical-align: middle;
-    font-size: 16px;
+.index-page-additional-info .adt-info .unit{
+    vertical-align: bottom;
+    line-height: 24px;
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+    font-size: 14px;
     color: #fff;
 }
 
-.index-page-additional-info .adt-info div {
+.index-page-additional-info .adt-info .adt-info-title {
     height: 48px;
     margin-top: 16px;
     line-height: 48px;

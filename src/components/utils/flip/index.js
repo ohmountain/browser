@@ -20,7 +20,7 @@ class Number extends Component {
             transitionDuration: this.props.duration + 'ms',
             transitionDelay: this.props.delay + 'ms',
             transitionTimingFunction: this.props.timingFunction
-        }, _style, this.props.style)
+        }, _style, this.props.styles)
 
         let numbers = [];
 
@@ -48,7 +48,7 @@ Number.propTypes = {
     width: PropTypes.number.isRequired,
     duration: PropTypes.number,
     delay: PropTypes.number,
-    style: PropTypes.object,
+    styles: PropTypes.object,
     timingFunction: PropTypes.oneOf(['linear', 'ease', 'ease-in', 'ease-out', 'ease-in-out'])
 }
 
@@ -91,11 +91,27 @@ class Flip extends Component {
         let numbers = this.state.to.split('');
         let len     = numbers.length;
         let child   = numbers.map((n, i) => {
-            return (<Number key={i} number={ parseInt(n)} height={36} width={24} duration={ (len - i) * 450}/>);
+            return (<Number key={i}
+                            number={ parseInt(n) }
+                            height={this.props.height}
+                            width={this.props.width}
+                            duration={ (len - i) * this.props.duration}
+                            delay={ this.props.delay }
+                            styles={ this.props.styles }/>);
         });
 
-        return <div>{ child }</div>
+        return <div style={ this.props.style }>{ child }</div>
     }
+}
+
+Flip.defaultProps = {
+    number: 0,
+    height: 32,
+    width: 32,
+    duration: 250,
+    delay: 250,
+    style: {},
+    styles: {}
 }
 
 export default Flip
