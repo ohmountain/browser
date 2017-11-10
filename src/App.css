@@ -546,6 +546,37 @@ ul.pagination > li > a:hover{
     text-align: center;
 }
 
+.index-page-additional-info {
+    margin-top: 48px;
+}
+
+.index-page-additional-info .adt-info {
+    display: inline-block;
+    width: 268px;
+    padding: 16px;
+    padding-bottom: 0px;
+    margin: 0 10px;
+    color: #FFF;
+    background-color: #000;
+}
+
+.index-page-additional-info .adt-info span {
+    font-size: 24px;
+}
+
+.index-page-additional-info .adt-info span .unit{
+    vertical-align: middle;
+    font-size: 16px;
+    color: #fff;
+}
+
+.index-page-additional-info .adt-info div {
+    height: 48px;
+    margin-top: 16px;
+    line-height: 48px;
+    border-top: 1px solid #454545;
+}
+
 .index-page-blocks-head {
     height: 48px;
     margin-top: 48px;

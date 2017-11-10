@@ -210,16 +210,27 @@ class Index extends Component {
         });
 
         let indexPageBlocks = [];
+        let indexPageTransactions = [];
         for (let i=0; i<10; i++) {
-            indexPageBlocks.push(<ul className="index-page-block-tb-body horizontal-list">
-                <li>19561213</li>
-                <li>1秒前</li>
+            indexPageBlocks.push(<ul key={ i } className="index-page-block-tb-body horizontal-list">
+                <li>{ this.state.blockHeight - i }</li>
+                <li>{ (i + 1) * 15 }秒前</li>
                 <li>4</li>
                 <li>0</li>
                 <li className="book-keeper">sbudisaguibjdksabuydibadsadnuiasgudadsnuaidbnksabdjau</li>
                 <li>1</li>
                 <li>254</li>
             </ul>);
+
+            indexPageTransactions.push(<ul key={ i } className="index-page-block-tb-body horizontal-list">
+                    <li>类型{ Math.ceil(Math.random()*10) }</li>
+                    <li className="book-keeper">{ randomString(64) }</li>
+                    <li>{ this.state.blockHeight - 1 }</li>
+                    <li>{ Math.ceil(Math.random() * 10) } 秒钟前</li>
+                    <li>0</li>
+                    <li>254 bytes</li>
+                    <li>无</li>
+                </ul>);
         }
 
         return (<div  className="container" ref="container" style={{ flexDirection: 'column-inverse' }} style={{"margin":"auto", textAlign:"center"}}>
@@ -251,6 +262,29 @@ class Index extends Component {
                     </div>
                 </div>
             </RcScrollAnim.Parallax >
+
+            <div className="index-page-additional-info">
+                <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0, 1] }}
+                                       style={{ transform: 'translateY(64px)' }} className="adt-info">
+                        <span>2468 <span className="unit">天</span></span>
+                        <div>系统运行时间</div>
+                </RcScrollAnim.Parallax >
+                <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0, 1] }}
+                                       style={{ transform: 'translateY(64px)' }} className="adt-info">
+                    <span>100000000 <span className="unit">个</span></span>
+                    <div>发行量</div>
+                </RcScrollAnim.Parallax >
+                <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0, 1] }}
+                                       style={{ transform: 'translateY(64px)' }} className="adt-info">
+                    <span>5164872156 <span className="unit">个</span></span>
+                    <div>系统有效地址</div>
+                </RcScrollAnim.Parallax >
+                <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0, 1] }}
+                                       style={{ transform: 'translateY(64px)' }} className="adt-info">
+                    <span>564872156 <span className="unit">个</span></span>
+                    <div>系统有效地址</div>
+                </RcScrollAnim.Parallax >
+            </div>
 
             <div className="index-blocks">
                 <div className="index-block-title"></div>
@@ -298,17 +332,16 @@ class Index extends Component {
                         </div>
                     </div>
                     <div className="index-page-blocks-body">
-
                         <ul className="index-page-block-tb-head horizontal-list">
-                            <li>高度</li>
-                            <li>出块时间</li>
-                            <li>交易数</li>
-                            <li>费用</li>
-                            <li className="book-keeper">记账人</li>
-                            <li>版本</li>
-                            <li>区块大小</li>
+                            <li>类型</li>
+                            <li className="book-keeper">哈希</li>
+                            <li>块高</li>
+                            <li>时间</li>
+                            <li>手续费</li>
+                            <li>大小</li>
+                            <li>交易特性</li>
                         </ul>
-                        <div> { indexPageBlocks } </div>
+                        <div type="alpha">{ indexPageTransactions }</div>
                     </div>
                 </div>
             </RcScrollAnim.Parallax>
@@ -318,3 +351,14 @@ class Index extends Component {
 }
 
 export default Index;
+
+function randomString(len) {
+    　　len = len || 32;
+    　　var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+    　　var maxPos = $chars.length;
+    　　var pwd = '';
+    　　for (let i = 0; i < len; i++) {
+        pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+    }
+    　　return pwd;
+}
