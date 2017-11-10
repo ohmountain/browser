@@ -547,7 +547,7 @@ ul.pagination > li > a:hover{
 }
 
 .index-page-additional-info {
-    margin-top: 48px;
+    margin-top: 12px;
 }
 
 .index-page-additional-info .adt-info {
@@ -555,9 +555,9 @@ ul.pagination > li > a:hover{
     width: 268px;
     padding: 16px;
     padding-bottom: 0px;
-    margin: 0 10px;
+    margin: 10px;
     color: #FFF;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .index-page-additional-info .adt-info span {
