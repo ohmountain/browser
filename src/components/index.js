@@ -98,70 +98,54 @@ class Index extends Component {
         return (<div  className="container" ref="container" style={{ flexDirection: 'column-inverse' }} style={{"margin":"auto", textAlign:"center"}}>
             <QueueAnim  type='top' delay={200} className="nodes-map">{ nodePointers }</QueueAnim>
 
-            <div className="index-page-additional-info">
-                <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
-                                       style={{ transform: 'translateY(0px)' }} className="adt-info">
+            <QueueAnim type={["left", "alpha"]} className="index-page-additional-info">
+                <div key="1" className="adt-info">
                         <Flip style={{ display: 'inline-block' }} width={14} height={24} number={ this.state.blockHeight } duration={450} styles={{ color: '#09f' }} />
                         <div className="unit">块</div>
                         <div className="adt-info-title">当前区块高度</div>
-                </RcScrollAnim.Parallax >
-                <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
-                                       style={{ transform: 'translateY(0px)' }} className="adt-info">
-
+                </div>
+                <div key="2" className="adt-info">
                     <Flip style={{ display: 'inline-block', color: 'red' }} width={14} height={24} duration={450} delay={1000} number={ this.state.transactions } />
                     <div className="unit">笔</div>
                     <div className="adt-info-title">交易数量</div>
-
-                </RcScrollAnim.Parallax >
-                <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
-                                       style={{ transform: 'translateY(0px)' }} className="adt-info">
-
+                </div>
+                <div key="8" className="adt-info">
                     <Flip style={{ display: 'inline-block', color: 'yellow' }} width={14} height={24} duration={450} delay={1500} number={ 54878952 } />
                     <div className="unit">个</div>
                     <div className="adt-info-title">有效地址</div>
 
-                </RcScrollAnim.Parallax >
-                <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
-                                       style={{ transform: 'translateY(0px)' }} className="adt-info">
-
+                </div>
+                <div key="3" className="adt-info">
                     <Flip style={{ display: 'inline-block', color: '#0f0' }} width={14} height={24} duration={450} delay={2000} number={ 15 } />
                     <div className="unit">秒</div>
                     <div className="adt-info-title">出块时间</div>
+                </div>
 
-                </RcScrollAnim.Parallax >
-
-                <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
-                                       style={{ transform: 'translateY(0px)' }} className="adt-info">
+                <div key="4" className="adt-info">
                         <Flip style={{ display: 'inline-block' }} width={14} height={24} number={ 2468 } delay={ 1000 }  duration={450} styles={{ color: '#49a' }} />
                         <div className="unit">天</div>
                         <div className="adt-info-title">系统运行时间</div>
-                </RcScrollAnim.Parallax >
-                <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
-                                       style={{ transform: 'translateY(0px)' }} className="adt-info">
+                </div>
 
+                <div key="5" className="adt-info">
                     <Flip style={{ display: 'inline-block', color: '#98f' }} width={14} height={24} duration={450} delay={1500} number={ 100000000 - 1 } />
                     <div className="unit">个</div>
                     <div className="adt-info-title">发行量</div>
+                </div>
 
-                </RcScrollAnim.Parallax >
-                <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
-                                       style={{ transform: 'translateY(0px)' }} className="adt-info">
-
+                <div key="6" className="adt-info">
                     <Flip style={{ display: 'inline-block', color: '#960' }} width={14} height={24} duration={450} delay={2000} number={ 5487 } />
                     <div className="unit">笔</div>
                     <div className="adt-info-title">资产发行量</div>
+                </div>
 
-                </RcScrollAnim.Parallax >
-                <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
- style={{ transform: 'translateY(0px)' }} className="adt-info">
-
+                <div key="7" className="adt-info">
                     <Flip style={{ display: 'inline-block', color: '#0f8' }} width={14} height={24} duration={450} delay={2500} number={ 984562 } />
                     <div className="unit">个</div>
                     <div className="adt-info-title">持有人</div>
+                </div>
 
-                </RcScrollAnim.Parallax >
-
-            </div>
+            </QueueAnim>
 
             <div className="general-info-wrapper">
                 <QueueAnim key="ssss" type={["right"]} duration={1250} className="info-wrapper">
