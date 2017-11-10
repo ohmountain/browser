@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
 import QueueAnim from 'rc-queue-anim';
 import RcScrollAnim from 'rc-scroll-anim';
-import echarts from 'echarts';
 import Flip from './utils/flip/index.js';
 
 class Index extends Component {
@@ -48,9 +47,6 @@ class Index extends Component {
     }
 
     render() {
-
-        let x0 = 272;
-        let y0 = 194;
 
         let points = [{
             x: 500,
@@ -105,14 +101,14 @@ class Index extends Component {
             <div className="index-page-additional-info">
                 <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
                                        style={{ transform: 'translateY(0px)' }} className="adt-info">
-                        <Flip style={{ display: 'inline-block' }} width={14} height={24} number={ this.state.blockHeight } styles={{ color: '#09f' }} />
+                        <Flip style={{ display: 'inline-block' }} width={14} height={24} number={ this.state.blockHeight } duration={450} styles={{ color: '#09f' }} />
                         <div className="unit">块</div>
                         <div className="adt-info-title">当前区块高度</div>
                 </RcScrollAnim.Parallax >
                 <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
                                        style={{ transform: 'translateY(0px)' }} className="adt-info">
 
-                    <Flip style={{ display: 'inline-block', color: 'red' }} width={14} height={24} duration={50} delay={1000} number={ this.state.transactions } />
+                    <Flip style={{ display: 'inline-block', color: 'red' }} width={14} height={24} duration={450} delay={1000} number={ this.state.transactions } />
                     <div className="unit">笔</div>
                     <div className="adt-info-title">交易数量</div>
 
@@ -120,7 +116,7 @@ class Index extends Component {
                 <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
                                        style={{ transform: 'translateY(0px)' }} className="adt-info">
 
-                    <Flip style={{ display: 'inline-block', color: 'yellow' }} width={14} height={24} duration={50} delay={1500} number={ 54878952 } />
+                    <Flip style={{ display: 'inline-block', color: 'yellow' }} width={14} height={24} duration={450} delay={1500} number={ 54878952 } />
                     <div className="unit">个</div>
                     <div className="adt-info-title">有效地址</div>
 
@@ -128,7 +124,7 @@ class Index extends Component {
                 <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
                                        style={{ transform: 'translateY(0px)' }} className="adt-info">
 
-                    <Flip style={{ display: 'inline-block', color: '#0f0' }} width={14} height={24} duration={50} delay={2000} number={ 15 } />
+                    <Flip style={{ display: 'inline-block', color: '#0f0' }} width={14} height={24} duration={450} delay={2000} number={ 15 } />
                     <div className="unit">秒</div>
                     <div className="adt-info-title">出块时间</div>
 
@@ -136,14 +132,14 @@ class Index extends Component {
 
                 <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
                                        style={{ transform: 'translateY(0px)' }} className="adt-info">
-                        <Flip style={{ display: 'inline-block' }} width={14} height={24} number={ 2468 } styles={{ color: '#49a' }} />
+                        <Flip style={{ display: 'inline-block' }} width={14} height={24} number={ 2468 } delay={ 1000 }  duration={450} styles={{ color: '#49a' }} />
                         <div className="unit">天</div>
                         <div className="adt-info-title">系统运行时间</div>
                 </RcScrollAnim.Parallax >
                 <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
                                        style={{ transform: 'translateY(0px)' }} className="adt-info">
 
-                    <Flip style={{ display: 'inline-block', color: '#98f' }} width={14} height={24} duration={50} delay={1000} number={ 100000000 - 1 } />
+                    <Flip style={{ display: 'inline-block', color: '#98f' }} width={14} height={24} duration={450} delay={1500} number={ 100000000 - 1 } />
                     <div className="unit">个</div>
                     <div className="adt-info-title">发行量</div>
 
@@ -151,7 +147,7 @@ class Index extends Component {
                 <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
                                        style={{ transform: 'translateY(0px)' }} className="adt-info">
 
-                    <Flip style={{ display: 'inline-block', color: '#960' }} width={14} height={24} duration={50} delay={1500} number={ 5487 } />
+                    <Flip style={{ display: 'inline-block', color: '#960' }} width={14} height={24} duration={450} delay={2000} number={ 5487 } />
                     <div className="unit">笔</div>
                     <div className="adt-info-title">资产发行量</div>
 
@@ -159,7 +155,7 @@ class Index extends Component {
                 <RcScrollAnim.Parallax animation={{ y:0,  playScale: [0.8, 1] }}
  style={{ transform: 'translateY(0px)' }} className="adt-info">
 
-                    <Flip style={{ display: 'inline-block', color: '#0f8' }} width={14} height={24} duration={50} delay={2000} number={ 984562 } />
+                    <Flip style={{ display: 'inline-block', color: '#0f8' }} width={14} height={24} duration={450} delay={2500} number={ 984562 } />
                     <div className="unit">个</div>
                     <div className="adt-info-title">持有人</div>
 
@@ -170,7 +166,7 @@ class Index extends Component {
             <div className="general-info-wrapper">
                 <QueueAnim key="ssss" type={["right"]} duration={1250} className="info-wrapper">
                     <div className="info-title">页面在线人数</div>
-                    <div key="1" className="info-number"><Flip number={ Math.ceil(Math.random() * 100) } sep=',' duration={500} /></div>
+                    <div key="1" className="info-number"><Flip number={ Math.ceil(Math.random() * 100) } sep=',' duration={450} delay={3000} /></div>
                 </QueueAnim>
                 <QueueAnim type="alpha" duration={2000} className="info-wrapper">
                     <div className="info-title">历史浏览量</div>
