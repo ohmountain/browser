@@ -21,29 +21,40 @@ class Index extends Component {
     }
 
     componentDidMount() {
-
         this.tm = setInterval(() => {
+            let request = new Request('http://localhost:8000/stats');
+            fetch(request).then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
 
-            let { blockHeight, transactions } = this.state;
+            }).then(json => {
 
-            blockHeight = parseInt(blockHeight);
-            transactions = parseInt(transactions);
+                this.setState({
+                    blockHeight: json.latestblocknumber,
+                    transactions: json.transactionvolume
+                }, () => {
+                    window.localStorage.setItem('blockHeight', this.state.blockHeight);
+                    window.localStorage.setItem('transactions', this.state.transactions);
+                });
 
-            blockHeight += 2;
-            transactions += Math.ceil(Math.random() * 10);
-
-            window.localStorage.setItem('blockHeight', blockHeight);
-            window.localStorage.setItem('transactions', transactions);
-
-            this.setState({
-                blockHeight,
-                transactions
+            }).catch(e => {
+                console.error(e)
             });
         }, 5000);
+
+        fetch('http://localhost:8000/block').then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+        }).then(json => {
+            console.log(json[0]);
+        }).catch(e => {
+        });
     }
 
     componentWillUnmount() {
-        clearInterval(this.tm);
+        window.clearInterval(this.tm);
     }
 
     render() {
@@ -110,7 +121,7 @@ class Index extends Component {
                     <div className="adt-info-title">交易数量</div>
                 </div>
                 <div key="8" className="adt-info">
-                    <Flip style={{ display: 'inline-block', color: 'yellow' }} width={14} height={24} duration={450} delay={1500} number={ 54878952 } />
+                    <Flip style={{ display: 'inline-block', color: 'yellow' }} width={14} height={24} duration={450} delay={1500} number={ this.state.blockHeight } />
                     <div className="unit">个</div>
                     <div className="adt-info-title">有效地址</div>
 
@@ -146,17 +157,6 @@ class Index extends Component {
                 </div>
 
             </QueueAnim>
-
-            <div className="general-info-wrapper">
-                <QueueAnim key="ssss" type={["right"]} duration={1250} className="info-wrapper">
-                    <div className="info-title">页面在线人数</div>
-                    <div key="1" className="info-number"><Flip number={ Math.ceil(Math.random() * 100) } sep=',' duration={450} delay={3000} /></div>
-                </QueueAnim>
-                <QueueAnim type="alpha" duration={2000} className="info-wrapper">
-                    <div className="info-title">历史浏览量</div>
-                    <div key="3" className="info-number"><Flip number={ this.state.transactions } sep=',' /></div>
-                </QueueAnim>
-            </div>
 
 
             <div className="index-blocks">
